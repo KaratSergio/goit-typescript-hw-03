@@ -29,5 +29,4 @@ class Manager extends Employee {
   }
 }
 
-
 export {};

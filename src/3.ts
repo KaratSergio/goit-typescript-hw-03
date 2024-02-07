@@ -10,8 +10,7 @@
 interface ICharacter {
   name: string;
   level: number;
-
-  introduce(): void;
+  introduce(phrase: string): void;
   levelUp(): void;
 }
 interface ISpellCaster {
@@ -22,16 +21,16 @@ interface ISpellCaster {
 class Wizard implements ICharacter, ISpellCaster {
   constructor(public name: string, public level: number) {
     if (this.level < 1) {
-      throw new Error('Level too low');
+      throw new Error("Level too low");
     }
   }
 
-  introduce(): void {
-    console.log("I am the mighty wizard" + ", " + this.name);
+  introduce(phrase: string): void {
+    console.log(phrase + ", " + this.name);
   }
 
   castSpell(): void {
-    console.log('Casting a spell, behold my power!');
+    console.log("Casting a spell, behold my power!");
   }
 
   levelUp(): void {
@@ -43,7 +42,7 @@ class Wizard implements ICharacter, ISpellCaster {
 // тестування класу
 const wizard = new Wizard('Merlin', 15);
 
-wizard.introduce();
+wizard.introduce('I am the mighty wizard');
 wizard.castSpell();
 wizard.levelUp();  // Level up! New level is 16
 
