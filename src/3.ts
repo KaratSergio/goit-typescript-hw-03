@@ -7,6 +7,17 @@
   Інтерфейс ISpellCaster повинен включати метод castSpell.
 */
 
+interface ICharacter {
+  name: string;
+  level: number;
+
+  introduce(): void;
+  levelUp(): void;
+}
+interface ISpellCaster {
+  castSpell(): void;
+}
+
 // реалізація класу Wizard
 class Wizard implements ICharacter, ISpellCaster {
   constructor(public name: string, public level: number) {
@@ -15,8 +26,8 @@ class Wizard implements ICharacter, ISpellCaster {
     }
   }
 
-  introduce(phrase: string): void {
-    console.log(phrase + ', ' + this.name);
+  introduce(): void {
+    console.log("I am the mighty wizard" + ", " + this.name);
   }
 
   castSpell(): void {
@@ -32,7 +43,7 @@ class Wizard implements ICharacter, ISpellCaster {
 // тестування класу
 const wizard = new Wizard('Merlin', 15);
 
-wizard.introduce('I am the mighty wizard');
+wizard.introduce();
 wizard.castSpell();
 wizard.levelUp();  // Level up! New level is 16
 
